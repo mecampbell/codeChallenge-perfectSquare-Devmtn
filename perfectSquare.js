@@ -19,8 +19,30 @@
 // perfectSquare(3000) // should return -1 (sq root of 3000 is 54.77)
 
 const perfectSquare = (num) => {
-    squareRootAnswer = 0
-    squaredAnswer = 0
-    squareRootStr = `${num}(${num})x${num}(${num})=${squareRootAnswer}`
-    squaredStr = `${num + 1}(${num + 1})x${num + 1}(${num + 1})=${squaredAnswer}`
+    let squareRootAnswer = (num * num);
+    let squaredAnswer = (num + 1) * (num + 1);
+    let squareRootStr = `${num}x${num}=${squareRootAnswer}`;
+    let squaredStr = `${num + 1}x${num + 1}=${squaredAnswer}`;
+    if (Math.round(Math.sqrt(squareRootAnswer)) === Math.sqrt(squareRootAnswer)) {
+        return `${squareRootStr} ${squaredStr}`;
+    } else if (Math.round(Math.sqrt(squaredAnswer)) === Math.sqrt(squaredAnswer)) {
+        return `${squareRootStr} ${squaredStr}`;        
+    } else {
+    return -1;
+    }
+};
+
+console.log(perfectSquare(3000));
+
+// I was going off the deep end here
+
+function findNextSquare(sq) {
+    let number = Math.sqrt(sq);
+
+    if(Math.round(number) === number) {
+        return Math.pow(++number, 2)
+    }
+    return -1;
 }
+
+console.log(findNextSquare(9));
